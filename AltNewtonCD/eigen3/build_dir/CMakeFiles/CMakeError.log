@@ -1,0 +1,113 @@
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wunusedlocaltypedefs failed with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2337472304/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2337472304.dir/build.make CMakeFiles/cmTryCompileExec2337472304.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2337472304.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -DCOMPILER_SUPPORT_Wunusedlocaltypedefs -Werror   -Wunused-local-typedefs -o CMakeFiles/cmTryCompileExec2337472304.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+error: unknown warning option '-Wunused-local-typedefs' [-Werror,-Wunknown-warning-option]
+make[1]: *** [CMakeFiles/cmTryCompileExec2337472304.dir/src.cxx.o] Error 1
+make: *** [cmTryCompileExec2337472304/fast] Error 2
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wnopsabi failed with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2161183360/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2161183360.dir/build.make CMakeFiles/cmTryCompileExec2161183360.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2161183360.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -Wwrite-strings -Wformat-security -DCOMPILER_SUPPORT_Wnopsabi -Werror   -Wno-psabi -o CMakeFiles/cmTryCompileExec2161183360.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+error: unknown warning option '-Wno-psabi' [-Werror,-Wunknown-warning-option]
+make[1]: *** [CMakeFiles/cmTryCompileExec2161183360.dir/src.cxx.o] Error 1
+make: *** [cmTryCompileExec2161183360/fast] Error 2
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_fnochecknew failed with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3963240368/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3963240368.dir/build.make CMakeFiles/cmTryCompileExec3963240368.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3963240368.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -Wwrite-strings -Wformat-security -Wno-variadic-macros -Wno-long-long -DCOMPILER_SUPPORT_fnochecknew -Werror   -fno-check-new -o CMakeFiles/cmTryCompileExec3963240368.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+clang: error: argument unused during compilation: '-fno-check-new'
+make[1]: *** [CMakeFiles/cmTryCompileExec3963240368.dir/src.cxx.o] Error 1
+make: *** [cmTryCompileExec3963240368/fast] Error 2
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_wd981 failed with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1647780239/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec1647780239.dir/build.make CMakeFiles/cmTryCompileExec1647780239.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1647780239.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -Wwrite-strings -Wformat-security -Wno-variadic-macros -Wno-long-long -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_wd981 -Werror   -wd981 -o CMakeFiles/cmTryCompileExec1647780239.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+clang: error: argument unused during compilation: '-wd981'
+make[1]: *** [CMakeFiles/cmTryCompileExec1647780239.dir/src.cxx.o] Error 1
+make: *** [cmTryCompileExec1647780239/fast] Error 2
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_wd2304 failed with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1757593206/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec1757593206.dir/build.make CMakeFiles/cmTryCompileExec1757593206.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1757593206.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -Wwrite-strings -Wformat-security -Wno-variadic-macros -Wno-long-long -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_wd2304 -Werror   -wd2304 -o CMakeFiles/cmTryCompileExec1757593206.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+clang: error: argument unused during compilation: '-wd2304'
+make[1]: *** [CMakeFiles/cmTryCompileExec1757593206.dir/src.cxx.o] Error 1
+make: *** [cmTryCompileExec1757593206/fast] Error 2
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_STRICTANSI failed with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2160208409/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2160208409.dir/build.make CMakeFiles/cmTryCompileExec2160208409.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2160208409.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -Wwrite-strings -Wformat-security -Wno-variadic-macros -Wno-long-long -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_STRICTANSI -Werror   -strict-ansi -o CMakeFiles/cmTryCompileExec2160208409.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+clang: error: argument unused during compilation: '-strict-ansi'
+make[1]: *** [CMakeFiles/cmTryCompileExec2160208409.dir/src.cxx.o] Error 1
+make: *** [cmTryCompileExec2160208409/fast] Error 2
+
+Source file was:
+int main() { return 0;}
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" failed.
+Compiler: CMAKE_Fortran_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: 
+
+The output was:
+No such file or directory
+
+
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" failed.
+Compiler: CMAKE_Fortran_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: -c
+
+The output was:
+No such file or directory
+
+
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" failed.
+Compiler: CMAKE_Fortran_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: -fpp
+
+The output was:
+No such file or directory
+
+
+Checking whether the Fortran compiler is Compaq using "-what" did not match "Compaq Visual Fortran":
+Checking whether the Fortran compiler is NAG using "-V" did not match "NAG Fortran Compiler":

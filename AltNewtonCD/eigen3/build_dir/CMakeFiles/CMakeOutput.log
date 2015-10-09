@@ -1,0 +1,463 @@
+The system is: Darwin - 13.0.0 - i386
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is Clang, found in "/usr/local/include/eigen3/build_dir/CMakeFiles/2.8.12.2/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is Clang, found in "/usr/local/include/eigen3/build_dir/CMakeFiles/2.8.12.2/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3705820330/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3705820330.dir/build.make CMakeFiles/cmTryCompileExec3705820330.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3705820330.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3705820330.dir/testCCompiler.c.o   -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec3705820330
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec3705820330.dir/link.txt --verbose=1
+/usr/bin/cc    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec3705820330.dir/testCCompiler.c.o  -o cmTryCompileExec3705820330  
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3967260167/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3967260167.dir/build.make CMakeFiles/cmTryCompileExec3967260167.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3967260167.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3967260167.dir/CMakeCCompilerABI.c.o   -c "/Applications/CMake 2.8-12.app/Contents/share/cmake-2.8/Modules/CMakeCCompilerABI.c"
+Linking C executable cmTryCompileExec3967260167
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec3967260167.dir/link.txt --verbose=1
+/usr/bin/cc    -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v -Wl,-v CMakeFiles/cmTryCompileExec3967260167.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec3967260167   
+Apple LLVM version 5.0 (clang-500.2.79) (based on LLVM 3.3svn)
+Target: x86_64-apple-darwin13.0.0
+Thread model: posix
+ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.9.0 -o cmTryCompileExec3967260167 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTryCompileExec3967260167.dir/CMakeCCompilerABI.c.o -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/5.0/lib/darwin/libclang_rt.osx.a
+@(#)PROGRAM:ld  PROJECT:ld64-224.1
+configured to support archs: armv6 armv7 armv7s arm64 i386 x86_64 armv6m armv7m armv7em
+Library search paths:
+	/usr/lib
+	/usr/local/lib
+Framework search paths:
+	/Library/Frameworks/
+	/System/Library/Frameworks/
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec3967260167/fast"]
+  ignore line: [/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3967260167.dir/build.make CMakeFiles/cmTryCompileExec3967260167.dir/build]
+  ignore line: ["/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec3967260167.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3967260167.dir/CMakeCCompilerABI.c.o   -c "/Applications/CMake 2.8-12.app/Contents/share/cmake-2.8/Modules/CMakeCCompilerABI.c"]
+  ignore line: [Linking C executable cmTryCompileExec3967260167]
+  ignore line: ["/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec3967260167.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc    -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v -Wl,-v CMakeFiles/cmTryCompileExec3967260167.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec3967260167   ]
+  ignore line: [Apple LLVM version 5.0 (clang-500.2.79) (based on LLVM 3.3svn)]
+  ignore line: [Target: x86_64-apple-darwin13.0.0]
+  ignore line: [Thread model: posix]
+  link line: [ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.9.0 -o cmTryCompileExec3967260167 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTryCompileExec3967260167.dir/CMakeCCompilerABI.c.o -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/5.0/lib/darwin/libclang_rt.osx.a]
+    arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld] ==> ignore
+    arg [-demangle] ==> ignore
+    arg [-dynamic] ==> ignore
+    arg [-arch] ==> ignore
+    arg [x86_64] ==> ignore
+    arg [-macosx_version_min] ==> ignore
+    arg [10.9.0] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec3967260167] ==> ignore
+    arg [-search_paths_first] ==> ignore
+    arg [-headerpad_max_install_names] ==> ignore
+    arg [-v] ==> ignore
+    arg [CMakeFiles/cmTryCompileExec3967260167.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lSystem] ==> lib [System]
+    arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/5.0/lib/darwin/libclang_rt.osx.a] ==> lib [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/5.0/lib/darwin/libclang_rt.osx.a]
+  Library search paths: [;/usr/lib;/usr/local/lib]
+  Framework search paths: [;/Library/Frameworks/;/System/Library/Frameworks/]
+  remove lib [System]
+  collapse lib [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/5.0/lib/darwin/libclang_rt.osx.a] ==> [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.0/lib/darwin/libclang_rt.osx.a]
+  collapse library dir [/usr/lib] ==> [/usr/lib]
+  collapse library dir [/usr/local/lib] ==> [/usr/local/lib]
+  collapse framework dir [/Library/Frameworks/] ==> [/Library/Frameworks]
+  collapse framework dir [/System/Library/Frameworks/] ==> [/System/Library/Frameworks]
+  implicit libs: [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.0/lib/darwin/libclang_rt.osx.a]
+  implicit dirs: [/usr/lib;/usr/local/lib]
+  implicit fwks: [/Library/Frameworks;/System/Library/Frameworks]
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3957916019/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3957916019.dir/build.make CMakeFiles/cmTryCompileExec3957916019.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3957916019.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTryCompileExec3957916019.dir/testCXXCompiler.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTryCompileExec3957916019
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec3957916019.dir/link.txt --verbose=1
+/usr/bin/c++     -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec3957916019.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec3957916019  
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1045624805/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec1045624805.dir/build.make CMakeFiles/cmTryCompileExec1045624805.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1045624805.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTryCompileExec1045624805.dir/CMakeCXXCompilerABI.cpp.o -c "/Applications/CMake 2.8-12.app/Contents/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp"
+Linking CXX executable cmTryCompileExec1045624805
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec1045624805.dir/link.txt --verbose=1
+/usr/bin/c++     -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v -Wl,-v CMakeFiles/cmTryCompileExec1045624805.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec1045624805   
+Apple LLVM version 5.0 (clang-500.2.79) (based on LLVM 3.3svn)
+Target: x86_64-apple-darwin13.0.0
+Thread model: posix
+ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.9.0 -o cmTryCompileExec1045624805 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTryCompileExec1045624805.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/5.0/lib/darwin/libclang_rt.osx.a
+@(#)PROGRAM:ld  PROJECT:ld64-224.1
+configured to support archs: armv6 armv7 armv7s arm64 i386 x86_64 armv6m armv7m armv7em
+Library search paths:
+	/usr/lib
+	/usr/local/lib
+Framework search paths:
+	/Library/Frameworks/
+	/System/Library/Frameworks/
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec1045624805/fast"]
+  ignore line: [/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec1045624805.dir/build.make CMakeFiles/cmTryCompileExec1045624805.dir/build]
+  ignore line: ["/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec1045624805.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTryCompileExec1045624805.dir/CMakeCXXCompilerABI.cpp.o -c "/Applications/CMake 2.8-12.app/Contents/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp"]
+  ignore line: [Linking CXX executable cmTryCompileExec1045624805]
+  ignore line: ["/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec1045624805.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++     -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v -Wl,-v CMakeFiles/cmTryCompileExec1045624805.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec1045624805   ]
+  ignore line: [Apple LLVM version 5.0 (clang-500.2.79) (based on LLVM 3.3svn)]
+  ignore line: [Target: x86_64-apple-darwin13.0.0]
+  ignore line: [Thread model: posix]
+  link line: [ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.9.0 -o cmTryCompileExec1045624805 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTryCompileExec1045624805.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/5.0/lib/darwin/libclang_rt.osx.a]
+    arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld] ==> ignore
+    arg [-demangle] ==> ignore
+    arg [-dynamic] ==> ignore
+    arg [-arch] ==> ignore
+    arg [x86_64] ==> ignore
+    arg [-macosx_version_min] ==> ignore
+    arg [10.9.0] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec1045624805] ==> ignore
+    arg [-search_paths_first] ==> ignore
+    arg [-headerpad_max_install_names] ==> ignore
+    arg [-v] ==> ignore
+    arg [CMakeFiles/cmTryCompileExec1045624805.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lc++] ==> lib [c++]
+    arg [-lSystem] ==> lib [System]
+    arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/5.0/lib/darwin/libclang_rt.osx.a] ==> lib [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/5.0/lib/darwin/libclang_rt.osx.a]
+  Library search paths: [;/usr/lib;/usr/local/lib]
+  Framework search paths: [;/Library/Frameworks/;/System/Library/Frameworks/]
+  remove lib [System]
+  collapse lib [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/5.0/lib/darwin/libclang_rt.osx.a] ==> [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.0/lib/darwin/libclang_rt.osx.a]
+  collapse library dir [/usr/lib] ==> [/usr/lib]
+  collapse library dir [/usr/local/lib] ==> [/usr/local/lib]
+  collapse framework dir [/Library/Frameworks/] ==> [/Library/Frameworks]
+  collapse framework dir [/System/Library/Frameworks/] ==> [/System/Library/Frameworks]
+  implicit libs: [c++;/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.0/lib/darwin/libclang_rt.osx.a]
+  implicit dirs: [/usr/lib;/usr/local/lib]
+  implicit fwks: [/Library/Frameworks;/System/Library/Frameworks]
+
+
+Performing C++ SOURCE FILE Test standard_math_library_linked_to_automatically succeded with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1185430822/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec1185430822.dir/build.make CMakeFiles/cmTryCompileExec1185430822.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1185430822.dir/src.cxx.o
+/usr/bin/c++    -Dstandard_math_library_linked_to_automatically   -o CMakeFiles/cmTryCompileExec1185430822.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+/usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx:2:14: warning: ignoring return value of function declared with const attribute [-Wunused-value]
+int main() { std::sin(0.0); std::log(0.0f); }
+             ^~~~~~~~ ~~~
+1 warning generated.
+Linking CXX executable cmTryCompileExec1185430822
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec1185430822.dir/link.txt --verbose=1
+/usr/bin/c++    -Dstandard_math_library_linked_to_automatically -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec1185430822.dir/src.cxx.o  -o cmTryCompileExec1185430822  
+
+Source file was:
+#include<cmath>
+int main() { std::sin(0.0); std::log(0.0f); }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_WERROR succeded with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec4111282845/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec4111282845.dir/build.make CMakeFiles/cmTryCompileExec4111282845.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec4111282845.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -DCOMPILER_SUPPORT_WERROR   -Werror -o CMakeFiles/cmTryCompileExec4111282845.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec4111282845
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec4111282845.dir/link.txt --verbose=1
+/usr/bin/c++    -fexceptions -DCOMPILER_SUPPORT_WERROR -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec4111282845.dir/src.cxx.o  -o cmTryCompileExec4111282845  
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_pedantic succeded with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1316595272/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec1316595272.dir/build.make CMakeFiles/cmTryCompileExec1316595272.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1316595272.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -DCOMPILER_SUPPORT_pedantic -Werror   -pedantic -o CMakeFiles/cmTryCompileExec1316595272.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec1316595272
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec1316595272.dir/link.txt --verbose=1
+/usr/bin/c++    -fexceptions -DCOMPILER_SUPPORT_pedantic -Werror -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec1316595272.dir/src.cxx.o  -o cmTryCompileExec1316595272  
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wall succeded with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec617565888/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec617565888.dir/build.make CMakeFiles/cmTryCompileExec617565888.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec617565888.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -pedantic -DCOMPILER_SUPPORT_Wall -Werror   -Wall -o CMakeFiles/cmTryCompileExec617565888.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec617565888
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec617565888.dir/link.txt --verbose=1
+/usr/bin/c++    -fexceptions -pedantic -DCOMPILER_SUPPORT_Wall -Werror -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec617565888.dir/src.cxx.o  -o cmTryCompileExec617565888  
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wextra succeded with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec150759768/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec150759768.dir/build.make CMakeFiles/cmTryCompileExec150759768.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec150759768.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -pedantic -Wall -DCOMPILER_SUPPORT_Wextra -Werror   -Wextra -o CMakeFiles/cmTryCompileExec150759768.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec150759768
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec150759768.dir/link.txt --verbose=1
+/usr/bin/c++    -fexceptions -pedantic -Wall -DCOMPILER_SUPPORT_Wextra -Werror -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec150759768.dir/src.cxx.o  -o cmTryCompileExec150759768  
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wundef succeded with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2029065444/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2029065444.dir/build.make CMakeFiles/cmTryCompileExec2029065444.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2029065444.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -DCOMPILER_SUPPORT_Wundef -Werror   -Wundef -o CMakeFiles/cmTryCompileExec2029065444.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec2029065444
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec2029065444.dir/link.txt --verbose=1
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -DCOMPILER_SUPPORT_Wundef -Werror -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec2029065444.dir/src.cxx.o  -o cmTryCompileExec2029065444  
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wcastalign succeded with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec312659932/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec312659932.dir/build.make CMakeFiles/cmTryCompileExec312659932.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec312659932.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -DCOMPILER_SUPPORT_Wcastalign -Werror   -Wcast-align -o CMakeFiles/cmTryCompileExec312659932.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec312659932
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec312659932.dir/link.txt --verbose=1
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -DCOMPILER_SUPPORT_Wcastalign -Werror -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec312659932.dir/src.cxx.o  -o cmTryCompileExec312659932  
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wcharsubscripts succeded with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3231506456/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3231506456.dir/build.make CMakeFiles/cmTryCompileExec3231506456.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3231506456.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -DCOMPILER_SUPPORT_Wcharsubscripts -Werror   -Wchar-subscripts -o CMakeFiles/cmTryCompileExec3231506456.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3231506456
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec3231506456.dir/link.txt --verbose=1
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -DCOMPILER_SUPPORT_Wcharsubscripts -Werror -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec3231506456.dir/src.cxx.o  -o cmTryCompileExec3231506456  
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wnonvirtualdtor succeded with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec4043797342/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec4043797342.dir/build.make CMakeFiles/cmTryCompileExec4043797342.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec4043797342.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -DCOMPILER_SUPPORT_Wnonvirtualdtor -Werror   -Wnon-virtual-dtor -o CMakeFiles/cmTryCompileExec4043797342.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec4043797342
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec4043797342.dir/link.txt --verbose=1
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -DCOMPILER_SUPPORT_Wnonvirtualdtor -Werror -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec4043797342.dir/src.cxx.o  -o cmTryCompileExec4043797342  
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wpointerarith succeded with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec160754469/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec160754469.dir/build.make CMakeFiles/cmTryCompileExec160754469.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec160754469.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -DCOMPILER_SUPPORT_Wpointerarith -Werror   -Wpointer-arith -o CMakeFiles/cmTryCompileExec160754469.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec160754469
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec160754469.dir/link.txt --verbose=1
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -DCOMPILER_SUPPORT_Wpointerarith -Werror -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec160754469.dir/src.cxx.o  -o cmTryCompileExec160754469  
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wwritestrings succeded with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3733331492/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3733331492.dir/build.make CMakeFiles/cmTryCompileExec3733331492.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3733331492.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -DCOMPILER_SUPPORT_Wwritestrings -Werror   -Wwrite-strings -o CMakeFiles/cmTryCompileExec3733331492.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3733331492
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec3733331492.dir/link.txt --verbose=1
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -DCOMPILER_SUPPORT_Wwritestrings -Werror -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec3733331492.dir/src.cxx.o  -o cmTryCompileExec3733331492  
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wformatsecurity succeded with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2628773429/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2628773429.dir/build.make CMakeFiles/cmTryCompileExec2628773429.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2628773429.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -Wwrite-strings -DCOMPILER_SUPPORT_Wformatsecurity -Werror   -Wformat-security -o CMakeFiles/cmTryCompileExec2628773429.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec2628773429
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec2628773429.dir/link.txt --verbose=1
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -Wwrite-strings -DCOMPILER_SUPPORT_Wformatsecurity -Werror -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec2628773429.dir/src.cxx.o  -o cmTryCompileExec2628773429  
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wnovariadicmacros succeded with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3441588479/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec3441588479.dir/build.make CMakeFiles/cmTryCompileExec3441588479.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3441588479.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -Wwrite-strings -Wformat-security -DCOMPILER_SUPPORT_Wnovariadicmacros -Werror   -Wno-variadic-macros -o CMakeFiles/cmTryCompileExec3441588479.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec3441588479
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec3441588479.dir/link.txt --verbose=1
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -Wwrite-strings -Wformat-security -DCOMPILER_SUPPORT_Wnovariadicmacros -Werror -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec3441588479.dir/src.cxx.o  -o cmTryCompileExec3441588479  
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wnolonglong succeded with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1803892561/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec1803892561.dir/build.make CMakeFiles/cmTryCompileExec1803892561.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1803892561.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -Wwrite-strings -Wformat-security -Wno-variadic-macros -DCOMPILER_SUPPORT_Wnolonglong -Werror   -Wno-long-long -o CMakeFiles/cmTryCompileExec1803892561.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec1803892561
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec1803892561.dir/link.txt --verbose=1
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -Wwrite-strings -Wformat-security -Wno-variadic-macros -DCOMPILER_SUPPORT_Wnolonglong -Werror -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec1803892561.dir/src.cxx.o  -o cmTryCompileExec1803892561  
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_fnocommon succeded with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1088515432/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec1088515432.dir/build.make CMakeFiles/cmTryCompileExec1088515432.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1088515432.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -Wwrite-strings -Wformat-security -Wno-variadic-macros -Wno-long-long -DCOMPILER_SUPPORT_fnocommon -Werror   -fno-common -o CMakeFiles/cmTryCompileExec1088515432.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec1088515432
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec1088515432.dir/link.txt --verbose=1
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -Wwrite-strings -Wformat-security -Wno-variadic-macros -Wno-long-long -DCOMPILER_SUPPORT_fnocommon -Werror -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec1088515432.dir/src.cxx.o  -o cmTryCompileExec1088515432  
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_fstrictaliasing succeded with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2311951246/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2311951246.dir/build.make CMakeFiles/cmTryCompileExec2311951246.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2311951246.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -Wwrite-strings -Wformat-security -Wno-variadic-macros -Wno-long-long -fno-common -DCOMPILER_SUPPORT_fstrictaliasing -Werror   -fstrict-aliasing -o CMakeFiles/cmTryCompileExec2311951246.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec2311951246
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec2311951246.dir/link.txt --verbose=1
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -Wwrite-strings -Wformat-security -Wno-variadic-macros -Wno-long-long -fno-common -DCOMPILER_SUPPORT_fstrictaliasing -Werror -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec2311951246.dir/src.cxx.o  -o cmTryCompileExec2311951246  
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Qunusedarguments succeded with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec959417870/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec959417870.dir/build.make CMakeFiles/cmTryCompileExec959417870.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec959417870.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -Wwrite-strings -Wformat-security -Wno-variadic-macros -Wno-long-long -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_Qunusedarguments -Werror   -Qunused-arguments -o CMakeFiles/cmTryCompileExec959417870.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec959417870
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec959417870.dir/link.txt --verbose=1
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -Wwrite-strings -Wformat-security -Wno-variadic-macros -Wno-long-long -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_Qunusedarguments -Werror -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec959417870.dir/src.cxx.o  -o cmTryCompileExec959417870  
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_ansi succeded with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1669157739/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec1669157739.dir/build.make CMakeFiles/cmTryCompileExec1669157739.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1669157739.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -Wwrite-strings -Wformat-security -Wno-variadic-macros -Wno-long-long -fno-common -fstrict-aliasing -Qunused-arguments -DCOMPILER_SUPPORT_ansi -Werror   -ansi -o CMakeFiles/cmTryCompileExec1669157739.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec1669157739
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec1669157739.dir/link.txt --verbose=1
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -Wwrite-strings -Wformat-security -Wno-variadic-macros -Wno-long-long -fno-common -fstrict-aliasing -Qunused-arguments -DCOMPILER_SUPPORT_ansi -Werror -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec1669157739.dir/src.cxx.o  -o cmTryCompileExec1669157739  
+
+Source file was:
+int main() { return 0;}
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_OPENMP succeded with the following output:
+Change Dir: /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2210288426/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTryCompileExec2210288426.dir/build.make CMakeFiles/cmTryCompileExec2210288426.dir/build
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_progress_report /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2210288426.dir/src.cxx.o
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -Wwrite-strings -Wformat-security -Wno-variadic-macros -Wno-long-long -fno-common -fstrict-aliasing -Qunused-arguments -ansi -DCOMPILER_SUPPORT_OPENMP   -fopenmp -o CMakeFiles/cmTryCompileExec2210288426.dir/src.cxx.o -c /usr/local/include/eigen3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec2210288426
+"/Applications/CMake 2.8-12.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec2210288426.dir/link.txt --verbose=1
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -Wwrite-strings -Wformat-security -Wno-variadic-macros -Wno-long-long -fno-common -fstrict-aliasing -Qunused-arguments -ansi -DCOMPILER_SUPPORT_OPENMP -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec2210288426.dir/src.cxx.o  -o cmTryCompileExec2210288426  
+
+Source file was:
+int main() { return 0;}

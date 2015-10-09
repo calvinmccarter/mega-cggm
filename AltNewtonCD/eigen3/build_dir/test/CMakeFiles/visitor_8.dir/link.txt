@@ -1,0 +1,1 @@
+/usr/bin/c++    -fexceptions -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wpointer-arith -Wwrite-strings -Wformat-security -Wno-variadic-macros -Wno-long-long -fno-common -fstrict-aliasing -Qunused-arguments -ansi -g0 -O2 -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/visitor_8.dir/visitor.cpp.o  -o visitor_8  
