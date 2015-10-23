@@ -11,6 +11,11 @@ function [Lambda, Theta, stats] = runAltNewtonCD(...
 %   - sigma(1e-4): backtracking termination criterion
 %   - tol(1e-2): tolerance for terminating outer loop
 %   - refit(0): refit selected model without penalty
+    
+    olddir = pwd;
+    thisfunc = which(mfilename());
+    thisdir = thisfunc(1:end-16);
+    cd(thisdir);
 
     verbose = 0;
     max_outer_iters = 50;
@@ -57,5 +62,5 @@ function [Lambda, Theta, stats] = runAltNewtonCD(...
     Theta = txt_to_sparse(Thetafile);
     stats = txt_to_struct(statsfile);
     system(['rm ' Yfile ' ' Xfile ' ' Lambdafile ' ' Thetafile ' ' statsfile]);
-
+    cd(olddir);
 end

@@ -19,7 +19,12 @@ function [Lambda, Theta, stats] = runAltNewtonCD(...
 %   - num_blocks_Theta(-1): number of blocks for Theta BCD
 %   - memory_usage(32000): memory available to process in Mb
 %   - max_threads(4): max number of threads to use 
-   
+
+    olddir = pwd;
+    thisfunc = which(mfilename());
+    thisdir = thisfunc(1:end-17);
+    cd(thisdir);
+  
     verbose = 0;
     max_outer_iters = 50;
     sigma = 1.0e-4;
@@ -113,4 +118,5 @@ function [Lambda, Theta, stats] = runAltNewtonCD(...
     if T0_str
         system(['rm ' Theta0file]);
     end
+    cd(olddir);
 end
