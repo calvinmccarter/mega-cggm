@@ -12,4 +12,5 @@ function [A] = txt_to_struct(filename)
         A.(splitline{1}) = vals;
         line = fgetl(fid);
     end
+    fclose(fid);
 end
