@@ -25,7 +25,9 @@ void exit_with_help() {
 		"    -i max_outer_iters(50): max number of outer iterations\n"
 		"    -s sigma(1e-4): backtracking termination criterion\n"
 		"    -q tol(1e-2): tolerance for terminating outer loop\n"
-		"    -r refit(false): refit selected model without penalty\n"
+		"    -L Lambda0_filename: filename with initial Lambda0\n"
+		"    -T Theta0_filename: filename with initial Theta0\n"
+		"    -r refit(false): update (Lambda0,Theta0) without adding edges\n"
 	);
 	exit(1);
 }
@@ -48,6 +50,9 @@ int main(int argc, char **argv) {
 		fprintf(stderr,"option is missing a value\n");
 		exit_with_help();
 	}
+
+	string Lambda0_filename = "";
+	string Theta0_filename = "";
 
 	for (int i = 0; i < num_opts; i++) {
 		if (cmdargs[2*i][0] != '-') {
@@ -72,6 +77,12 @@ int main(int argc, char **argv) {
 				break;
 			case 'q':
 				options.tol = atof(cmdargs[2*i+1].c_str());
+				break;
+			case 'L':
+				Lambda0_filename = cmdargs[2*i+1];
+				break;
+			case 'T':
+				Theta0_filename = cmdargs[2*i+1];
 				break;
 			case 'r':
 				options.refit = atoi(cmdargs[2*i+1].c_str()) != 0;
@@ -145,6 +156,56 @@ int main(int argc, char **argv) {
 		Lambda.insert(i,i) = 1.0/(0.01 + (1.0/n_y)*Y.col(i).dot(Y.col(i)));
 	}
 	SpMatrixC Theta(p, q);
+
+	// Initialize Lambda0 if specified by user
+	if (!Lambda0_filename.empty()) {
+		ifstream ifL(Lambda0_filename.c_str(), ifstream::in);
+		long L0_p, L0_q, L0_nnz;
+		ifL >> L0_p >> L0_q >> L0_nnz;
+		if (L0_p != q || L0_q != q) {
+			fprintf(stderr, "error reading Lambda0_file\n");
+			exit(1);
+		}
+		vector<Triplet> triplets;
+		long i, j;
+		double val;
+		for (long n = 0; n < L0_nnz; n++) {
+			ifL >> i >> j >> val;
+			if (!ifL.good()) {
+				fprintf(stderr, "error reading Lambda0_file\n");
+				exit(1);
+			}
+			if (i >= j) {
+				triplets.push_back(Triplet(i-1, j-1, val));
+			}
+		}
+		Lambda.setFromTriplets(triplets.begin(), triplets.end());
+		ifL.close();
+	}
+
+	// Initialize Theta0 if specified by user
+	if (!Theta0_filename.empty()) {
+		ifstream ifT(Theta0_filename.c_str(), ifstream::in);
+		long T0_p, T0_q, T0_nnz;
+		ifT >> T0_p >> T0_q >> T0_nnz;
+		if (T0_p != p || T0_q != q) {
+			fprintf(stderr, "error reading Theta0_file\n");
+			exit(1);
+		}
+		vector<Triplet> triplets;
+		long i, j;
+		double val;
+		for (long n = 0; n < T0_nnz; n++) {
+			ifT >> i >> j >> val;
+			if (!ifT.good()) {
+				fprintf(stderr, "error reading Theta0_file\n");
+				exit(1);
+			}
+			triplets.push_back(Triplet(i-1, j-1, val));
+		}
+		Theta.setFromTriplets(triplets.begin(), triplets.end());
+		ifT.close();
+	}
 
 	// Run optimization
 	fflush(stdout);

@@ -211,7 +211,8 @@ double ThetaActiveSet(
 		const MatrixXd& X,
 		SpMatrixC& Theta,
 		const MatrixXd& R,
-		double lambda) {
+		double lambda,
+		const CGGMOptions& options) {
 	long n_x = X.rows();
 	long n_y = Y.rows();
 	long n_o = min(n_x, n_y);
@@ -223,8 +224,25 @@ double ThetaActiveSet(
 		(2.0 / sqrt(n_x)) * X.transpose() * R;
 
 	vector<Triplet> triplets;
-	vector<Triplet> tripletsZeros;
 	triplets.reserve(Theta.nonZeros());
+	if (options.refit) {
+		for (long j = 0; j < q; j++) {
+			InIter it(Theta,j);
+			for (long i = 0; i < p; i++) {
+				double Theta_ij = 0;
+				if (it && it.row() == i) {
+					Theta_ij = it.value();
+					++it;
+				}
+				if (Theta_ij != 0) {
+					triplets.push_back(Triplet(i, j, Theta_ij));
+					subgrad += fabs(L1SubGrad(Theta_ij, G(i,j), lambda));
+				}
+			}
+		}
+		Theta.setFromTriplets(triplets.begin(), triplets.end());
+		return subgrad;
+	}
 	
 	for (long j = 0; j < q; j++) {
 		InIter it(Theta,j);
@@ -254,15 +272,36 @@ double LambdaActiveSet(
 		SpMatrixC& Lambda,
 		const MatrixXd& Sigma,
 		const MatrixXd& Psi,
-		double lambda) {
+		double lambda,
+		const CGGMOptions& options) {
 	long q = Lambda.cols();
 	double subgrad = 0.0;
 	
 	vector<Triplet> triplets;
-	vector<Triplet> tripletsZeros;
 	triplets.reserve(Lambda.nonZeros());
 	MatrixXd G = Syy - Sigma - Psi;
-	
+	if (options.refit) {	
+		for (long j = 0; j < q; j++) {
+			InIter it(Lambda, j);
+
+			for (long i = 0; i < j; i++) {
+				double Lambda_ij = 0;
+				if (it && it.row() == i) {
+					Lambda_ij = it.value();
+					++it;
+				}
+				if (Lambda_ij != 0 || fabs(G(i,j)) > lambda) {
+					triplets.push_back(Triplet(i, j, Lambda_ij));
+					subgrad += 2*fabs(L1SubGrad(Lambda_ij, G(i,j), lambda));
+				}
+			}
+			triplets.push_back(Triplet(j, j, it.value()));
+			subgrad += fabs(G(j,j));
+		}
+		Lambda.setFromTriplets(triplets.begin(), triplets.end());
+		return subgrad;
+	}
+
 	for (long j = 0; j < q; j++) {
 		InIter it(Lambda, j);
 
@@ -594,14 +633,14 @@ void CGGMfast(
 		// Calculate the subgradient and free sets
 		gettimeofday(&mini_start_time, NULL);
     	double subgrad_theta = ThetaActiveSet(
-			Y, X, Theta, R, lambda_x);
+			Y, X, Theta, R, lambda_x, options);
 		gettimeofday(&mini_end_time, NULL);
 		double theta_active_time = toddiff(&mini_start_time, &mini_end_time);
 
 		gettimeofday(&mini_start_time, NULL);
 		Psi.noalias() = R.transpose() * R;
 		double subgrad_lambda = LambdaActiveSet(
-			Syy, Sxy, Sxx, Lambda, Sigma, Psi, lambda_y);
+			Syy, Sxy, Sxx, Lambda, Sigma, Psi, lambda_y, options);
 		gettimeofday(&mini_end_time, NULL);
 		double lambda_active_time = toddiff(&mini_start_time, &mini_end_time);
 
@@ -676,56 +715,8 @@ void CGGMfast(
 		stats->time_theta_cd_qr.push_back(time_report_theta.qr);
 	} // outer Newton iteration 
 
-	if (!options.refit) {
-		// Return symmetric matrix
-		SpMatrixC Lambda_sym;
-		Lambda_sym = Lambda.selfadjointView<Upper>();
-		Lambda = Lambda_sym;
-		return;
-	}
-	
-
-	// Refit selected model without l1 penalty
-	MatrixXd Psi;
-	Psi.noalias() = R.transpose() * R;
-	ThetaActiveSet(Y, X, Theta, R, lambda_x);
-	LambdaActiveSet(Syy, Sxy, Sxx, Lambda, Sigma, Psi, lambda_y);
-	SpMatrixC Lambda_sym;
-	Lambda_sym = Lambda.selfadjointView<Upper>();
-	double f_old = Objective(
-		Syy, Sxy, Sxx, 0.0, 0.0, 
-		Lambda_sym, Theta, Q, R);	
-	for (int r_outer = 0; r_outer < options.max_outer_iters; r_outer++) {
-		// CD for Lambda, also updates Sigma, R, and lState
-		struct TimeLambdaCD time_dummy_lambda;
-		Psi.noalias() = R.transpose() * R;
-		LambdaCoordinateDescent(
-			Syy, Sxy, Sxx, Lambda, Theta, 
-			Sigma, Q, R, Psi, 0.0, lState, 
-			options, time_dummy_lambda);
-
-		// CD for Theta, also updates Q and R
-		struct TimeThetaCD time_dummy_theta;
-		ThetaCoordinateDescent(
-			Syy, Sxy, Sxx, X, Theta, Sigma, Q, R, 0.0, 
-			options, time_dummy_theta);
-		lState.trRtQ = traceProduct(R, Q);
-
-		Lambda_sym = Lambda.selfadjointView<Upper>();
-		double f = Objective(
-			Syy, Sxy, Sxx, 0.0, 0.0, 
-			Lambda_sym, Theta, Q, R);	
-		if (!options.quiet) {
-			PRINTF("Refit %d objective:%f\n", r_outer, f);
-			fflush(stdout);
-		}
-		if (fabs((f-f_old)/f_old) < 0.1*options.tol) {
-			break;
-		}
-		f_old = f;
-	}
-
 	// Return symmetric matrix
+	SpMatrixC Lambda_sym;
 	Lambda_sym = Lambda.selfadjointView<Upper>();
 	Lambda = Lambda_sym;
 }
