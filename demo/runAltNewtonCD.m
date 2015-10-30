@@ -10,6 +10,8 @@ function [Lambda, Theta, stats] = runAltNewtonCD(...
 %   - max_outer_iters(50): max number of outer iterations
 %   - sigma(1e-4): backtracking termination criterion
 %   - tol(1e-2): tolerance for terminating outer loop
+%   - Lambda0(none): q x q sparse matrix to initialize Lambda
+%   - Theta0(none): p x q sparse matrix to initialize Theta
 %   - refit(0): refit selected model without penalty
     
     olddir = pwd;
@@ -17,6 +19,9 @@ function [Lambda, Theta, stats] = runAltNewtonCD(...
     thisdir = thisfunc(1:end-16);
     cd(thisdir);
 
+    L0_str = '';
+    T0_str = '';
+    dummy = randi(1e6);
     verbose = 0;
     max_outer_iters = 50;
     sigma = 1.0e-4;
@@ -36,12 +41,20 @@ function [Lambda, Theta, stats] = runAltNewtonCD(...
         if isfield(options, 'refit')
             refit = options.refit;
         end
-
+        if isfield(options, 'Lambda0')
+            Lambda0file = sprintf('Lambda0-dummy-%i.txt', dummy);
+            sparse_to_txt(Lambda0file, options.Lambda0);
+            L0_str = sprintf('-L \"%s\" ', Lambda0file);
+        end
+        if isfield(options, 'Theta0')
+            Theta0file = sprintf('Theta0-dummy-%i.txt', dummy);
+            sparse_to_txt(Theta0file, options.Theta0);
+            T0_str = sprintf('-T \"%s\" ', Theta0file);
+        end
     end
     [n_y, q] = size(Y);
     [n_x, p] = size(X);
 
-    dummy = randi(1e6);
     Yfile = sprintf('Y-dummy-%i.txt', dummy);
     Xfile = sprintf('X-dummy-%i.txt', dummy);
     Lambdafile = sprintf('Lambda-dummy-%i.txt', dummy);
@@ -52,8 +65,9 @@ function [Lambda, Theta, stats] = runAltNewtonCD(...
     option_str = sprintf('-y %f -x %f -v %i -i %i -s %f -q %f -r %i', ...
         lambdaLambda, lambdaTheta, ...
         verbose, max_outer_iters, sigma, tol, refit);
-    command_str = sprintf('%s %s %i %i %i %i %s %s %s %s %s', ...
+    command_str = sprintf('%s %s %s %s %i %i %i %i %s %s %s %s %s', ...
         '../AltNewtonCD/cggmfast_run', option_str, ...
+        L0_str, T0_str, ...
         n_x, p, n_y, q, Yfile, Xfile, ...
         Lambdafile, Thetafile, statsfile);
 
@@ -62,5 +76,11 @@ function [Lambda, Theta, stats] = runAltNewtonCD(...
     Theta = txt_to_sparse(Thetafile);
     stats = txt_to_struct(statsfile);
     system(['rm ' Yfile ' ' Xfile ' ' Lambdafile ' ' Thetafile ' ' statsfile]);
+    if L0_str
+        system(['rm ' Lambda0file]);
+    end
+    if T0_str
+        system(['rm ' Theta0file]);
+    end
     cd(olddir);
 end

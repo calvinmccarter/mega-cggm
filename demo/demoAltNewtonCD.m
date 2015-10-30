@@ -1,5 +1,5 @@
 system('(cd ../AltNewtonCD && make)');
-close all;
+close all; clear all;
 X = dlmread('Xfile'); % (10 samples x 15 features)
 Y = dlmread('Yfile'); % (10 samples x 12 features)
 lambdaLambda = 0.1;
@@ -9,23 +9,41 @@ lambdaTheta = 0.2;
 [Lambda_vanilla, Theta_vanilla, stats_vanilla] = runAltNewtonCD(...
     Y, X, lambdaLambda, lambdaTheta);
 figure('name', 'vanilla');
-subplot(1,2,1); imagesc(Lambda_vanilla);
-subplot(1,2,2); imagesc(Theta_vanilla);
-assert(abs(-10.74786 - stats_vanilla.objval(end)) < 1.0e-2);
+subplot(1,2,1); imagesc(Lambda_vanilla); colorbar; set(gca,'dataAspectRatio',[1 1 1]);
+subplot(1,2,2); imagesc(Theta_vanilla); colorbar; set(gca,'dataAspectRatio',[1 1 1]);
 
 % options example:
 options.tol = 1.0e-5;
-[Lambda_exact, Theta_exact, stats_exact] = runAltNewtonCD(...
+[Lambda_vanilla, Theta_vanilla, stats_vanilla] = runAltNewtonCD(...
     Y, X, lambdaLambda, lambdaTheta, options);
-figure('name', 'high-accuracy');
-subplot(1,2,1); imagesc(Lambda_exact);
-subplot(1,2,2); imagesc(Theta_exact);
+figure('name', 'vanilla');
+subplot(1,2,1); imagesc(Lambda_vanilla); set(gca,'dataAspectRatio',[1 1 1]);
+subplot(1,2,2); imagesc(Theta_vanilla); set(gca,'dataAspectRatio',[1 1 1]);
 
 % semi-supervised example:
 partialX = X(1:end-4,:); % Y has 10 samples, X has 6 samples
 [Lambda_semi, Theta_semi, stats_semi] = runAltNewtonCD(...
     Y, partialX, lambdaLambda, lambdaTheta);
 figure('name', 'missing X');
-subplot(1,2,1); imagesc(Lambda_semi);
-subplot(1,2,2); imagesc(Theta_semi);
+subplot(1,2,1); imagesc(Lambda_semi); set(gca,'dataAspectRatio',[1 1 1]);
+subplot(1,2,2); imagesc(Theta_semi); set(gca,'dataAspectRatio',[1 1 1]);
 
+% warm-starting example
+options.Lambda0 = Lambda_vanilla;
+options.Theta0 = Theta_vanilla;
+options.refit = 0; % allowed to add edges
+[Lambda_warm, Theta_warm, stats_warm] = runAltNewtonCD(...
+    Y, X, 0.2*lambdaLambda, 0.5*lambdaTheta, options);
+figure('name', 'warm-starting');
+subplot(1,2,1); imagesc(Lambda_warm); set(gca,'dataAspectRatio',[1 1 1]);
+subplot(1,2,2); imagesc(Theta_warm); set(gca,'dataAspectRatio',[1 1 1]);
+
+% refitting example
+options.Lambda0 = sparse(Lambda_vanilla);
+options.Theta0 = sparse(Theta_vanilla);
+options.refit = 1; % don't add any edges
+[Lambda_refit, Theta_refit, stats_refit] = runAltNewtonCD(...
+    Y, X, 0.2*lambdaLambda, lambdaTheta, options);
+figure('name', 'refitting');
+subplot(1,2,1); imagesc(Lambda_refit); colorbar; set(gca,'dataAspectRatio',[1 1 1]);
+subplot(1,2,2); imagesc(Theta_refit); colorbar; set(gca,'dataAspectRatio',[1 1 1]);

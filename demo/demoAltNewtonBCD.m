@@ -3,7 +3,7 @@ if r ~= 0
     fprintf('first go to AltNewtonBCD directory and run $ make\n');
     return;
 end
-close all;
+close all; clear all;
 X = dlmread('Xfile'); % (10 samples x 15 features)
 Y = dlmread('Yfile'); % (10 samples x 12 features)
 lambdaLambda = 0.1;
@@ -15,7 +15,6 @@ lambdaTheta = 0.2;
 figure('name', 'vanilla');
 subplot(1,2,1); imagesc(Lambda_vanilla);
 subplot(1,2,2); imagesc(Theta_vanilla);
-assert(abs(-10.8671 - stats_vanilla.objval(end)) < 1.0e-2);
 
 % options example:
 options.tol = 1.0e-5;

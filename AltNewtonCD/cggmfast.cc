@@ -242,24 +242,24 @@ double ThetaActiveSet(
 		}
 		Theta.setFromTriplets(triplets.begin(), triplets.end());
 		return subgrad;
-	}
-	
-	for (long j = 0; j < q; j++) {
-		InIter it(Theta,j);
-		for (long i = 0; i < p; i++) {
-			double Theta_ij = 0;
-			if (it && it.row() == i) {
-				Theta_ij = it.value();
-				++it;
-			}
-			if (Theta_ij != 0 || fabs(G(i,j)) > lambda) {
-				triplets.push_back(Triplet(i, j, Theta_ij));
-				subgrad += fabs(L1SubGrad(Theta_ij, G(i,j), lambda));
+	} else {
+		for (long j = 0; j < q; j++) {
+			InIter it(Theta,j);
+			for (long i = 0; i < p; i++) {
+				double Theta_ij = 0;
+				if (it && it.row() == i) {
+					Theta_ij = it.value();
+					++it;
+				}
+				if (Theta_ij != 0 || fabs(G(i,j)) > lambda) {
+					triplets.push_back(Triplet(i, j, Theta_ij));
+					subgrad += fabs(L1SubGrad(Theta_ij, G(i,j), lambda));
+				}
 			}
 		}
+		Theta.setFromTriplets(triplets.begin(), triplets.end());
+		return subgrad;
 	}
-	Theta.setFromTriplets(triplets.begin(), triplets.end());
-	return subgrad;
 }
 
 // Returns subgradient
@@ -290,6 +290,26 @@ double LambdaActiveSet(
 					Lambda_ij = it.value();
 					++it;
 				}
+				if (Lambda_ij != 0) {
+					triplets.push_back(Triplet(i, j, Lambda_ij));
+					subgrad += 2*fabs(L1SubGrad(Lambda_ij, G(i,j), lambda));
+				}
+			}
+			triplets.push_back(Triplet(j, j, it.value()));
+			subgrad += fabs(G(j,j));
+		}
+		Lambda.setFromTriplets(triplets.begin(), triplets.end());
+		return subgrad;
+	} else {
+		for (long j = 0; j < q; j++) {
+			InIter it(Lambda, j);
+
+			for (long i = 0; i < j; i++) {
+				double Lambda_ij = 0;
+				if (it && it.row() == i) {
+					Lambda_ij = it.value();
+					++it;
+				}
 				if (Lambda_ij != 0 || fabs(G(i,j)) > lambda) {
 					triplets.push_back(Triplet(i, j, Lambda_ij));
 					subgrad += 2*fabs(L1SubGrad(Lambda_ij, G(i,j), lambda));
@@ -301,26 +321,6 @@ double LambdaActiveSet(
 		Lambda.setFromTriplets(triplets.begin(), triplets.end());
 		return subgrad;
 	}
-
-	for (long j = 0; j < q; j++) {
-		InIter it(Lambda, j);
-
-		for (long i = 0; i < j; i++) {
-			double Lambda_ij = 0;
-			if (it && it.row() == i) {
-				Lambda_ij = it.value();
-				++it;
-			}
-			if (Lambda_ij != 0 || fabs(G(i,j)) > lambda) {
-				triplets.push_back(Triplet(i, j, Lambda_ij));
-				subgrad += 2*fabs(L1SubGrad(Lambda_ij, G(i,j), lambda));
-			}
-		}
-		triplets.push_back(Triplet(j, j, it.value()));
-		subgrad += fabs(G(j,j));
-	}
-	Lambda.setFromTriplets(triplets.begin(), triplets.end());
-	return subgrad;
 }
 
 // Coordinate descent for Theta

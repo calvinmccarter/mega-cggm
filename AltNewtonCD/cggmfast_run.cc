@@ -175,7 +175,7 @@ int main(int argc, char **argv) {
 				fprintf(stderr, "error reading Lambda0_file\n");
 				exit(1);
 			}
-			if (i >= j) {
+			if (i <= j) {
 				triplets.push_back(Triplet(i-1, j-1, val));
 			}
 		}

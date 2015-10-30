@@ -41,7 +41,8 @@ struct CGGMOptions {
 	double cd_tol;
 
 	// Algorithm parameters
-	bool refit; // if true: refit model using selected edges but no penalty
+	bool refit; // if true: only remove edges when fitting model
+	// Only makes sense when providing Lambda0 and Theta0
 };
 
 struct CGGMStats {
