@@ -12,7 +12,7 @@ function [Lambda, Theta, stats] = runAltNewtonCD(...
 %   - tol(1e-2): tolerance for terminating outer loop
 %   - Lambda0(none): q x q sparse matrix to initialize Lambda
 %   - Theta0(none): p x q sparse matrix to initialize Theta
-%   - refit(0): refit selected model without penalty
+%   - refit(0): refit selected model without adding any edges
     
     olddir = pwd;
     thisfunc = which(mfilename());

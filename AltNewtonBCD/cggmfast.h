@@ -25,7 +25,7 @@ struct CGGMOptions {
  	num_blocks_Theta(-1), // <0: min with memory, 0: auto, >0: user input
  	num_blocks_Lambda(-1), // <0: min with memory, 0: auto, >0: user input
 	memory_usage(32000), // default 32 Gb 
-	max_threads(1) {}
+	max_threads(4) {}
 	
 	// Whether to print info messages
 	bool quiet;
@@ -55,6 +55,10 @@ struct CGGMOptions {
 
 	// Parallelization parameters
 	int max_threads;
+	
+	// Algorithm parameters
+	bool refit; // if true, only remove edges when fitting model
+	// Only makes sense when providing Lambda0 and Theta0
 };
 
 struct CGGMStats {

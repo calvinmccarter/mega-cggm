@@ -167,7 +167,8 @@ double ThetaActiveSet(
 		const vector< vector<double> > &X,
 		double lambda_x,
 		sparse_t &Theta,
-		const vector< vector<double> > &R) {
+		const vector< vector<double> > &R,
+		const CGGMOptions &options) {
 	double subgrad = 0;
 	vector<Triplet> triplets;
 	triplets.reserve(Theta.nnz);
@@ -196,7 +197,7 @@ double ThetaActiveSet(
 				Theta_ij = Theta.values[idx];
 				idx++;
 			}
-			if (Theta_ij != 0 || fabs(G_ij) > lambda_x) {
+			if (Theta_ij != 0 || (!options.refit && fabs(G_ij) > lambda_x) ) {
 				subgrad += fabs(L1SubGrad(Theta_ij, G_ij, lambda_x));
 				Triplet triplet(i, j, Theta_ij);
 				#pragma omp critical
@@ -252,7 +253,7 @@ double LambdaActiveSet(
 				idx++;
 			}
 			double G_ij = G_i[j];
-			if (Lambda_ij != 0 || fabs(G_ij) > lambda_y) {
+			if (Lambda_ij != 0 || (!options.refit && fabs(G_ij) > lambda_y) ) {
 				subgrad += 2*fabs(L1SubGrad(Lambda_ij,G_ij,lambda_y));
 				Triplet triplet(i, j, Lambda_ij);
 				#pragma omp critical
@@ -1110,7 +1111,7 @@ void CGGMfast(
 
 	for (int tOuter = 0; tOuter < options.max_outer_iters; tOuter++) {
 		gettimeofday(&mini_start_time, NULL);
-		double subgradTheta = ThetaActiveSet(Y, X, lambda_x, Theta, R);
+		double subgradTheta = ThetaActiveSet(Y, X, lambda_x, Theta, R, options);
 		gettimeofday(&mini_end_time, NULL);
 		double theta_active_time = toddiff(&mini_start_time, &mini_end_time);
 		if (!options.quiet) {

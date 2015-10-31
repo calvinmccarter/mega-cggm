@@ -23,21 +23,22 @@ void exit_with_help() {
 		"    num_rows num_columns num_nonzeros\n"
 		"    row column value\n"
 		"options:\n"
-		"    -y lambda_y : set the regularization parameter lambda_y (default 0.5)\n"    
-		"    -x lambda_x : set the regularization parameter lambda_x (default 0.5)\n"    
-		"    -L Lambda0_filename: filename with initial Lambda\n"
-		"    -T Theta0_filename: filename with initial Theta\n"
-		"    -v verbose: show information or not (0 or 1)\n"
-		"    -i max_outer_iters: max number of outer iterations\n"
-		"    -s sigma: backtracking termination criterion\n"
-		"    -q tol: tolerance for terminating outer loop\n"
-		"    -o obj_tol: CG tolerance for calculating objective function\n"
-		"    -g grad_tol: CG tolerance for calculating gradient\n"
-		"    -h hess_tol: CG tolerance for calculating hessian\n"
-		"    -l num_blocks_Lambda: number of blocks for Lambda CD\n"
-		"    -t num_blocks_Theta: number of blocks for Theta CD\n"
-		"    -m memory_usage: memory capacity in MB\n"  
-		"    -n threads : set the max number of threads\n"    
+		"    -y lambda_y(0.5): set regularization parameter lambda_Lambda\n"
+		"    -x lambda_x(0.5): set regularization parameter lambda_Theta\n"    
+		"    -L Lambda0_filename(none): filename with initial Lambda\n"
+		"    -T Theta0_filename(none): filename with initial Theta\n"
+		"    -v verbose(1): show information or not (0 or 1)\n"
+		"    -i max_outer_iters(50): max number of outer iterations\n"
+		"    -s sigma(1e-4): backtracking termination criterion\n"
+		"    -q tol(1e-2): tolerance for terminating outer loop\n"
+		"    -o obj_tol(1e-13): CG tolerance for calculating objective function\n"
+		"    -g grad_tol(1e-10): CG tolerance for calculating gradient\n"
+		"    -h hess_tol(1e-8): CG tolerance for calculating hessian\n"
+		"    -l num_blocks_Lambda(-1): number of blocks for Lambda CD\n"
+		"    -t num_blocks_Theta(-1): number of blocks for Theta CD\n"
+		"    -m memory_usage(32000): memory capacity in MB\n"  
+		"    -n threads(4) : set the max number of threads\n"    
+		"    -r refit(false): update (Lambda0,Theta0) without adding edges\n"
 	);
 	exit(1);
 }
@@ -114,6 +115,9 @@ int main(int argc, char **argv) {
 				break;
 			case 'n':
 				options.max_threads = atoi(cmdargs[2*i+1].c_str());
+				break;
+			case 'r':
+				options.refit = atoi(cmdargs[2*i+1].c_str()) != 0;
 				break;
 			default:
 				fprintf(stderr,"unknown option: -%c\n", cmdargs[2*i][1]);
