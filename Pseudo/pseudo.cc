@@ -80,7 +80,7 @@ void lasso_cd(
 		Xi2[i] = X.col(i).dot(X.col(i));
 	}
 
-	vector<long> ix_list;
+	vector<long> ix_list(p);
 	for (long i = 0; i < p; i++) {
 		ix_list[i] = i;
 	}
@@ -139,7 +139,6 @@ void Pseudo(
 	for (long i = 0; i < q-1; i++) {
 		lambdaReg[i] = lambda_y;
 	}
-
 	MatrixXd Betas(p+q-1, q); // TODO- sparse format
 	vector<double> Vars(q);
 	MatrixXd preds(n, p+q-1);
@@ -162,7 +161,7 @@ void Pseudo(
 		Betas.col(i) = Beta;
 		Vars[i] = Var;
 	}
-		
+
 	MatrixXd Omega(q, q);
 	for (long i = 0; i < q; i++) {
 		Omega(i,i) = 1 / Vars[i];
@@ -192,7 +191,7 @@ void Pseudo(
 		}
 	}
 	Lambda.setFromTriplets(Omega_triplets.begin(), Omega_triplets.end());
-	
+
 	vector<Triplet> Theta_triplets;
 	for (long i = 0; i < p; i++) {
 		for (long j = 0; j < q; j++) {
