@@ -1,6 +1,9 @@
-setenv('DYLD_LIBRARY_PATH','');
-addpath('.'); % mexopts.sh
-mex -largeArrayDims cggmfast.cc cggmfast_mex.cc -DNDEBUG -Dchar16_t=uint16_t -I/usr/include/ -Ieigen3 -output cggmfast
+mex -largeArrayDims cggmfast.cc cggmfast_mex.cc -DNDEBUG -I/usr/include/ -Ieigen3 -output cggmfast
+
+% Mac OSX:
+%setenv('DYLD_LIBRARY_PATH','');
+%addpath('.'); % mexopts.sh
+%mex -largeArrayDims cggmfast.cc cggmfast_mex.cc -DNDEBUG -Dchar16_t=uint16_t -I/usr/include/ -Ieigen3 -output cggmfast
 
 n = 50;
 p = 20;
