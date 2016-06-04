@@ -13,7 +13,7 @@ struct PseudoOptions {
 	quiet(false),
 	max_iters(50),
     tol(1.0e-2),
-    make_diag_dominant(false) {}
+    make_diag_dominant(true) {}
 	
 	// Whether to print info messages
 	bool quiet;

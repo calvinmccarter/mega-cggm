@@ -71,6 +71,7 @@ void lasso_cd(
 		const MatrixXd& X, 
 		vector<double>& lambdaReg,
 		VectorXd& w, // initialize before calling
+		double& obj,
 		PseudoOptions& options) {
 	long n = X.rows();
 	long p = X.cols();
@@ -110,6 +111,11 @@ void lasso_cd(
 			resid = resid + (old_wi - w(i))*X.col(i);
 		}
 	}
+	resid = y - X * w;
+	obj = 0.5*resid.dot(resid);
+	for (long ix = 0; ix < p; ix++) {
+		obj += fabs(lambdaReg[ix] * w[ix]);
+	}
 }
 
 void Pseudo(
@@ -145,19 +151,20 @@ void Pseudo(
 	preds.rightCols(p) = Xscaled;
 	for (long i = 0; i < q; i++) {
 		VectorXd Beta(p+q-1);
+		double obj = 0;
 
 		preds.leftCols(i) = Yscaled.leftCols(i);
 		for (long j = i + 1; j < q; j++) {
 			preds.col(j-1) = Yscaled.col(j);
 		}
 		VectorXd outs = Yscaled.col(i);
-		lasso_cd(outs, preds, lambdaReg, Beta, options);
+		lasso_cd(outs, preds, lambdaReg, Beta, obj, options);
 		
 		VectorXd hatYi = preds * Beta;
-		VectorXd errs = Y - hatYi;
-		errs.colwise() -= errs.colwise().mean();
-		double Var = (1.0/n) * errs.dot(errs);
-	
+		VectorXd errs = Y.col(i) - hatYi;
+		double errs_mean = errs.mean();
+		VectorXd centered_errs = (errs.array() - errs_mean).matrix();
+		double Var = (1.0/n) * centered_errs.dot(centered_errs);
 		Betas.col(i) = Beta;
 		Vars[i] = Var;
 	}

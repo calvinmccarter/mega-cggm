@@ -1,5 +1,6 @@
-CXX=/usr/bin/g++
-CXXFLAGS=-fPIC -O3 -DNDEBUG
+#CXX=/usr/bin/g++
+CXX=/usr/local/bin/g++-4.9
+CXXFLAGS=-fopenmp -fPIC -O3 -DNDEBUG
 INCLUDEFLAGS=-I/usr/include -Ieigen3 -I/usr/local/include
 LIBFLAGS= 
 

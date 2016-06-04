@@ -23,7 +23,7 @@ void exit_with_help() {
 		"    -x lambda_x(0.5): set the regularization parameter lambda_x\n"
 		"    -v verbose(1): show information or not (0 or 1)\n"
 		"    -i max_iters(50): max number of Lasso iterations\n"
-		"    -d diag_dominant(false): make Lambda diag dominant\n"
+		"    -d diag_dominant(true): make Lambda diag dominant\n"
 	);
 	exit(1);
 }
@@ -92,6 +92,11 @@ int main(int argc, char **argv) {
 			stats_filename.c_str());
 	}
 
+	if (n_x != n_y) {
+		fprintf(stderr, "n_x must equal n_y\n");
+		exit_with_help();
+	}
+
 	// Read input data from file
 	MatrixXd Y(n_y, q);
 	MatrixXd X(n_x, p);
@@ -123,10 +128,10 @@ int main(int argc, char **argv) {
 
 	// Center and scale by 1/sqrt(n)
 	//double scaling = 1.0/sqrt(n);
-	VectorXd Y_mean = Y.colwise().mean();
-	VectorXd X_mean = X.colwise().mean();
-	Y.rowwise() -= Y_mean.transpose();
-	X.rowwise() -= X_mean.transpose();
+	//VectorXd Y_mean = Y.colwise().mean();
+	//VectorXd X_mean = X.colwise().mean();
+	//Y.rowwise() -= Y_mean.transpose();
+	//X.rowwise() -= X_mean.transpose();
 	//Y *= scaling;
 	//X *= scaling;
 
