@@ -66,7 +66,7 @@ int main(int argc, char **argv) {
 				options.max_iters = atoi(cmdargs[2*i+1].c_str());
 				break;
 			case 'd':
-				options.make_diag_dominant = atoi(cmdargs[2*i+1].c_str()) != 0;
+				options.diag_dominant = atoi(cmdargs[2*i+1].c_str()) != 0;
 				break;
 			default:
 				fprintf(stderr,"unknown option: -%c\n", cmdargs[2*i][1]);

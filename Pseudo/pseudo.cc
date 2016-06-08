@@ -145,14 +145,18 @@ void Pseudo(
 	for (long i = 0; i < q-1; i++) {
 		lambdaReg[i] = lambda_y;
 	}
-	MatrixXd Betas(p+q-1, q); // TODO- sparse format
+	MatrixXd Betas(p+q-1, q); // TODO- delete
+	vector<Triplet> Betas_triplets;
 	vector<double> Vars(q);
 	MatrixXd preds(n, p+q-1);
 	preds.rightCols(p) = Xscaled;
 	for (long i = 0; i < q; i++) {
-		VectorXd Beta(p+q-1);
+		VectorXd Beta(p+q-1); // TODO- SparseVector
 		double obj = 0;
 
+		// TODO- pull lasso_cd in to avoid moving data around
+		// TODO- compute Xi2 only once
+		// TODO- use SAFE rule
 		preds.leftCols(i) = Yscaled.leftCols(i);
 		for (long j = i + 1; j < q; j++) {
 			preds.col(j-1) = Yscaled.col(j);
@@ -165,11 +169,18 @@ void Pseudo(
 		double errs_mean = errs.mean();
 		VectorXd centered_errs = (errs.array() - errs_mean).matrix();
 		double Var = (1.0/n) * centered_errs.dot(centered_errs);
+		for (long ix = 0; ix < p+q-1; ix++) {
+			if (Beta(ix) != 0) {
+				Betas_triplets.push_back(Triplet(ix,i, Beta(ix)));
+			}
+		}
 		Betas.col(i) = Beta;
 		Vars[i] = Var;
 	}
+	SpMatrixC Betas_sp(p+q-1, q);
+	Betas_sp.setFromTriplets(Betas_triplets.begin(), Betas_triplets.end());
 
-	MatrixXd Omega(q, q);
+	MatrixXd Omega(q, q); // TODO-delete
 	for (long i = 0; i < q; i++) {
 		Omega(i,i) = 1 / Vars[i];
 		for (long j = 0; j < i; j++) {
@@ -179,26 +190,81 @@ void Pseudo(
 			Omega(i,j) = -1 * Vars[i] * Betas(j-1,i);
 		}
 	}
-	Omega = 0.5*(Omega + Omega.transpose());
-	// TODO - make diag dominant
+	vector<Triplet> Omega_triplets;
+	for (long i = 0; i < q; i++) {
+		Omega_triplets.push_back(Triplet(i, i, 1.0 / Vars[i]));
+		for (InIter it(Betas_sp, i); it.index() < q-1; ++it) {
+			long j = it.index();
+			long real_j = j;
+			if (j >= i) {
+				real_j = j + 1;
+			}
+			double Betas_ji = it.value();
+			double Omega_ij = -1 * Vars[i] * Betas_ji;
+			Omega_triplets.push_back(Triplet(i,real_j,Omega_ij));
+		}
+	}
+	SpMatrixC Omega_sp(q, q);
+	Omega_sp.setFromTriplets(Omega_triplets.begin(), Omega_triplets.end());
 
-	MatrixXd Theta_dense(p, q);
+	Omega = 0.5*(Omega + Omega.transpose());
+	if (options.diag_dominant) {
+		for (long i = 0; i < q; i++) {
+			double dom = 1e-2;
+			for (long j = 0; j < q; j++) {
+				if (j==i) {
+					continue;
+				}
+				dom += Omega(i,j);
+			}
+			Omega(i,i) = fmax(Omega(i,i), dom);
+		}
+	}
+	SpMatrixC Omega_sp_T = Omega_sp.transpose();
+	Omega_sp = 0.5*(Omega_sp + Omega_sp_T);
+	if (options.diag_dominant) {
+		for (long i = 0; i < q; i++) {
+			double dom = 1e-2;
+			double Omega_ii = 0;
+			for (InIter it(Omega_sp,i); it; ++it) {
+				if (it.index() == i) {
+					Omega_ii = it.value();
+				} else {
+					dom += it.value();
+				}
+			}
+			Omega_sp.coeffRef(i,i) = fmax(Omega_ii, dom);
+		}
+	}
+
+	MatrixXd Theta_dense(p, q); // TODO- delete
 	for (long i = 0; i < q; i++) {
 		for (long j = 0; j < p; j++) {
 			Theta_dense(j,i) = -1 * Omega(i,i) * Betas(q-1+j,i);
 		}
 	}
+	/* TODO- finish
+	vector<Triplet> Theta_triplets;
+	for (long i = 0; i < q; i++) {
+		for (InIter it(Betas_sp, i); it; ++it) {
+		}
+	}
+	*/
 	
-	vector<Triplet> Omega_triplets;
+	/* TODO- delete
+	vector<Triplet> Lambda_triplets;
 	for (long i = 0; i < q; i++) {
 		for (long j = 0; j < q; j++) {
 			if (Omega(i,j) != 0) {
-				Omega_triplets.push_back(Triplet(i,j,Omega(i,j)));
+				Lambda_triplets.push_back(Triplet(i,j,Omega(i,j)));
 			}
 		}
 	}
-	Lambda.setFromTriplets(Omega_triplets.begin(), Omega_triplets.end());
+	Lambda.setFromTriplets(Lambda_triplets.begin(), Lambda_triplets.end());
+	*/
+	Lambda = Omega_sp;
 
+	//*
 	vector<Triplet> Theta_triplets;
 	for (long i = 0; i < p; i++) {
 		for (long j = 0; j < q; j++) {
@@ -208,6 +274,7 @@ void Pseudo(
 		}
 	}
 	Theta.setFromTriplets(Theta_triplets.begin(), Theta_triplets.end());
+	//*/
 
 	
 	gettimeofday(&current_time, NULL);

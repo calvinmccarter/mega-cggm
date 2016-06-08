@@ -13,7 +13,7 @@ struct PseudoOptions {
 	quiet(false),
 	max_iters(50),
     tol(1.0e-2),
-    make_diag_dominant(true) {}
+    diag_dominant(true) {}
 	
 	// Whether to print info messages
 	bool quiet;
@@ -25,7 +25,7 @@ struct PseudoOptions {
 	double tol;
 
 	// Make Lambda diagonal dominant
-	bool make_diag_dominant; 
+	bool diag_dominant; 
 };
 
 struct PseudoStats {
