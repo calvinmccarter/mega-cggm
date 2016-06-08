@@ -68,7 +68,9 @@ def runPseudo(
         n_x, p, n_y, q, Yfile, Xfile,
         Lambdafile, Thetafile, statsfile)
 
-    ret = os.system(command_str)
+    #ret = os.system(command_str)
+    output = subprocess.check_output(command_str, shell=True)
+    print output
     Lambda = txt_to_sparse(Lambdafile)
     Theta = txt_to_sparse(Thetafile)
     stats = read_stats(statsfile)

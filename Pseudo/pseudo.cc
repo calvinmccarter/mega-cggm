@@ -207,6 +207,7 @@ void Pseudo(
 	SpMatrixC Omega_sp(q, q);
 	Omega_sp.setFromTriplets(Omega_triplets.begin(), Omega_triplets.end());
 
+	// TODO- delete
 	Omega = 0.5*(Omega + Omega.transpose());
 	if (options.diag_dominant) {
 		for (long i = 0; i < q; i++) {
@@ -220,8 +221,10 @@ void Pseudo(
 			Omega(i,i) = fmax(Omega(i,i), dom);
 		}
 	}
+
 	SpMatrixC Omega_sp_T = Omega_sp.transpose();
 	Omega_sp = 0.5*(Omega_sp + Omega_sp_T);
+	vector<double> Omega_iis(q);
 	if (options.diag_dominant) {
 		for (long i = 0; i < q; i++) {
 			double dom = 1e-2;
@@ -233,7 +236,13 @@ void Pseudo(
 					dom += it.value();
 				}
 			}
-			Omega_sp.coeffRef(i,i) = fmax(Omega_ii, dom);
+			double new_Omega_ii = fmax(Omega_ii, dom);
+			Omega_sp.coeffRef(i,i) = new_Omega_ii;
+			Omega_iis[i] = new_Omega_ii;
+		}
+	} else {
+		for (long i = 0; i < q; i++) {
+			Omega_iis[i] = Omega_sp.coeffRef(i,i);
 		}
 	}
 
@@ -243,13 +252,18 @@ void Pseudo(
 			Theta_dense(j,i) = -1 * Omega(i,i) * Betas(q-1+j,i);
 		}
 	}
-	/* TODO- finish
 	vector<Triplet> Theta_triplets;
 	for (long i = 0; i < q; i++) {
 		for (InIter it(Betas_sp, i); it; ++it) {
+			long j = it.index();
+			if (j < q-1) {
+				continue;
+			}
+			long real_j = j - (q - 1);
+			double Theta_ji = -1 * Omega_iis[i] * it.value();
+			Theta_triplets.push_back(Triplet(real_j, i, Theta_ji));
 		}
 	}
-	*/
 	
 	/* TODO- delete
 	vector<Triplet> Lambda_triplets;
@@ -264,7 +278,7 @@ void Pseudo(
 	*/
 	Lambda = Omega_sp;
 
-	//*
+	/*
 	vector<Triplet> Theta_triplets;
 	for (long i = 0; i < p; i++) {
 		for (long j = 0; j < q; j++) {
@@ -273,8 +287,8 @@ void Pseudo(
 			}
 		}
 	}
+	*/
 	Theta.setFromTriplets(Theta_triplets.begin(), Theta_triplets.end());
-	//*/
 
 	
 	gettimeofday(&current_time, NULL);
