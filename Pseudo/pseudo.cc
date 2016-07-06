@@ -155,7 +155,7 @@ void Pseudo(
 
 	for (long i = 0; i < q; i++) { // TODO- openmp
 		if (!options.quiet) {
-			printf("output variable %ld \n", i);
+			fprintf(stdout, "output variable %ld \n", i);
 		}
 			
 		VectorXd Beta(p+q-1); // TODO- SparseVector
