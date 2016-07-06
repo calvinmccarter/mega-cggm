@@ -70,6 +70,7 @@ void lasso_cd(
 		const VectorXd& y, 
 		const MatrixXd& X, 
 		vector<double>& lambdaReg,
+		vector<long>& ix_list,
 		VectorXd& w, // initialize before calling
 		double& obj,
 		PseudoOptions& options) {
@@ -81,11 +82,6 @@ void lasso_cd(
 		Xi2[i] = X.col(i).dot(X.col(i));
 	}
 
-	vector<long> ix_list(p);
-	for (long i = 0; i < p; i++) {
-		ix_list[i] = i;
-	}
-	
 	w.resize(p);
 	for (long i = 0; i < p; i++) {
 		w(i) = 0;
@@ -149,7 +145,19 @@ void Pseudo(
 	vector<double> Vars(q);
 	MatrixXd preds(n, p+q-1);
 	preds.rightCols(p) = Xscaled;
-	for (long i = 0; i < q; i++) {
+
+	vector<long> ix_list(p+q-1);
+	for (long i = 0; i < p+q-1; i++) {
+		ix_list[i] = i;
+	}
+	MatrixXd Xprime;
+	
+
+	for (long i = 0; i < q; i++) { // TODO- openmp
+		if (!options.quiet) {
+			printf("output variable %ld \n", i);
+		}
+			
 		VectorXd Beta(p+q-1); // TODO- SparseVector
 		double obj = 0;
 
@@ -161,7 +169,10 @@ void Pseudo(
 			preds.col(j-1) = Yscaled.col(j);
 		}
 		VectorXd outs = Yscaled.col(i);
-		lasso_cd(outs, preds, lambdaReg, Beta, obj, options);
+		if (options.screen) {
+			
+		}
+		lasso_cd(outs, preds, lambdaReg, ix_list, Beta, obj, options);
 		
 		VectorXd hatYi = preds * Beta;
 		VectorXd errs = Y.col(i) - hatYi;

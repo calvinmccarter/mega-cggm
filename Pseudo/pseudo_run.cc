@@ -24,6 +24,7 @@ void exit_with_help() {
 		"    -v verbose(1): show information or not (0 or 1)\n"
 		"    -i max_iters(50): max number of Lasso iterations\n"
 		"    -d diag_dominant(true): make Lambda diag dominant\n"
+		"    -s screen(true): use SAFE screening rule\n"
 	);
 	exit(1);
 }
@@ -67,6 +68,9 @@ int main(int argc, char **argv) {
 				break;
 			case 'd':
 				options.diag_dominant = atoi(cmdargs[2*i+1].c_str()) != 0;
+				break;
+			case 's':
+				options.screen = atoi(cmdargs[2*i+1].c_str()) != 0;
 				break;
 			default:
 				fprintf(stderr,"unknown option: -%c\n", cmdargs[2*i][1]);

@@ -26,6 +26,9 @@ struct PseudoOptions {
 
 	// Make Lambda diagonal dominant
 	bool diag_dominant; 
+
+	// Use SAFE screening rule
+	bool screen;
 };
 
 struct PseudoStats {
