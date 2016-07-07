@@ -162,6 +162,44 @@ double Objective(
 		lambda_x*Theta.L1Norm() + lambda_y*Lambda.L1NormOffDiag();
 }
 
+double LogLik(
+		const vector< vector<double> > &Y,
+		const vector< vector<double> > &X,
+		const smat_t &Lambda,
+		const sparse_t &Theta,
+		const vector< vector<double> > &Q,
+		const vector< vector<double> > &R,
+		double tol) {
+	long n_x = X[0].size();
+	long n_y = Y[0].size();
+	long n_o = min(n_x, n_y);
+	double logdet;
+	Lambda.ComputeLogdet(logdet, tol);
+	//PRINTF("logdet=%.10f, trLambdaYtY=%.10f, 2trThetaXtY=%.10f, trRtQ=%.10f \n",
+	//	logdet, Lambda.traceProduct(Y, Y), 2*Theta.traceProduct(X,Y),
+	//	traceProduct(R, Q));	
+	double mean_ll = logdet - (1.0/n_y)*Lambda.traceProduct(Y, Y) -
+		2*(1.0/n_o)*Theta.traceProduct(X, Y) - traceProduct(R, Q);
+	return n_o*mean_ll;
+}
+
+// Assumes non-symmetrized Lambda
+long CountNonzeros(const smat_t &Lambda, const sparse_t &Theta) {
+	long Lambda_nnz = 0;
+	for (long idx = 0; idx < Lambda.nnz; idx++) {
+		if (Lambda.values[idx] != 0) {
+			Lambda_nnz++;
+		}
+	}
+	long Theta_nnz = 0;
+	for (long idx = 0; idx < Theta.nnz; idx++) {
+		if (Theta.values[idx] != 0) {
+			Theta_nnz++;
+		}
+	}
+	return Lambda_nnz + Theta_nnz;
+}
+
 double ThetaActiveSet(
 		const vector< vector<double> > &Y,
 		const vector< vector<double> > &X,
@@ -1262,6 +1300,15 @@ void CGGMfast(
 		stats.blocks_theta.push_back(blocks_Theta);
 
 	}
+	// Model selection statistics
+	stats.loglik = LogLik(Y, X, Lambda, Theta, Q, R, options.obj_tol);
+	long n_o = min(n_x, n_y);
+	long nonzeros = CountNonzeros(Lambda, Theta);
+	double dims = p*q + q*(q+1)/2;
+	stats.AIC = 2*nonzeros - 2*stats.loglik;
+	stats.BIC = log(n_o)*nonzeros - 2*stats.loglik;
+	stats.eBIC = log(n_o)*nonzeros + 4*log(dims)*nonzeros - 2*stats.loglik;
+
 	smat_t Lambda_sym;
 	Lambda_sym.symmetricfrom(Lambda);
 	Lambda.copyfrom(Lambda_sym);

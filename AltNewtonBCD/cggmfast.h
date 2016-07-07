@@ -99,6 +99,11 @@ struct CGGMStats {
 	vector<double> time_lambda_cd_cd_prep;
 	vector<double> time_lambda_cd_cd_apply;
     vector<double> time_lambda_cd_ls;
+
+	double loglik;
+	double AIC;
+	double BIC;
+	double eBIC;
 };
 
 extern "C" {

@@ -475,6 +475,10 @@ int main(int argc, char **argv) {
 		fS << stats.blocks_theta[i] << " ";
 	}
 	fS << endl;
+	fS << "loglik " << stats.loglik << endl;
+	fS << "AIC " << stats.AIC << endl;
+	fS << "BIC " << stats.BIC << endl;
+	fS << "eBIC " << stats.eBIC << endl;
 
 	fS.close();
 
