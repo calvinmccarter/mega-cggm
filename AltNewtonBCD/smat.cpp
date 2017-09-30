@@ -645,7 +645,7 @@ int smat_t::ComputeLogdet(double &result, double tol) const {
 	}
 }
 
-int smat_t::ComputeAVVtx(const vector< vector<double> > &V, 
+void smat_t::ComputeAVVtx(const vector< vector<double> > &V, 
 			const vector<double> &x, vector<double> &AVVtx) const {
 	long r = V[0].size();
 	vector<double> Ax_result(p, 0.0);

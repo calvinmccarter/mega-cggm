@@ -62,7 +62,7 @@ class smat_t {
         int ComputeLogdet(double &result, double tol) const;
 
 		// Compute (A+V*V')x
-		int ComputeAVVtx(const vector< vector<double> > &V, 
+		void ComputeAVVtx(const vector< vector<double> > &V, 
 			const vector<double> &x, vector<double> &AVVtx) const;
 
 		// Solve (A+V*V')x = b
